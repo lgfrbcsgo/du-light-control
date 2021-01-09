@@ -1,9 +1,13 @@
 # DU Light Controller
 
-![Starter kit pattern](./assets/patter.gif)
+![](./assets/starterkit.png)
 
-![Sequence navigation](./assets/navigation.png)
+![](./assets/patter.gif)
 
-![Programming board with empty sequence](./assets/empty_sequence.png)
+![](./assets/navigation.png)
 
-![Programming board with empty sequence](./assets/with_sequence.png)
+![](./assets/extractor_output.png)
+
+![](./assets/empty_sequence.png)
+
+![](./assets/with_sequence.png)
