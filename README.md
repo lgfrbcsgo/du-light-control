@@ -10,7 +10,7 @@ Blueprints for Starter Kits are available at
 
 ::pos{0,2,-1.3446,-49.6236,17.1239}
 
-**VR:** DU Light Controller
+**VR:** DU Light Control
 
 ### Scripts
 There are three scripts for programming and controlling lights.
