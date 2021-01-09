@@ -70,8 +70,8 @@ handlers:
       local intervalDuration = 0.469 --export: The duration of each interval in seconds.
       local idleState = false --export: The state of the lights when the script has shutdown.
 
-
-      local sequence = {}  -- REPLACE WITH ACTUAL SEQUENCE!
+      -- PASTE SEQUENCE HERE. Replace {} with the output from the extractor.
+      local sequence = {}
 
 
       local Main = require('custom/light-controller/sequencer')
