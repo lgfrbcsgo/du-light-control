@@ -4,8 +4,8 @@ Get the latest version from the [releases page](https://github.com/lgfrbcsgo/du-
 
 ## Tutorial
 The tutorial assumes you own a Starter Kit. 
-Starter Kits are available at **::pos{0,2,-1.3524,-49.6077,125.9548}**. 
-(VR Outside the lag zone)
+Blueprints for Starter Kits are available at **::pos{0,2,-1.3446,-49.6236,17.1239}**. 
+(VR "DU Light Controller")
 
 ### Scripts
 There are three scripts for programming and controlling lights.
