@@ -1,8 +1,8 @@
 # DU Light Controller
 
-![](images/starterkit.png)
+![](images/starter_kit.png)
 
-![](images/patter.gif)
+![](images/pattern.gif)
 
 ![](images/navigation.png)
 
@@ -10,4 +10,4 @@
 
 ![](images/empty_sequence.png)
 
-![](images/with_sequence.png)
+![](images/non_empty_sequence.png)
