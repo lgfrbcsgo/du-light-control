@@ -4,7 +4,8 @@
   "scripts": {
     "clean": "rimraf dist",
     "bundle": "node build/bundle.js",
-    "build": "npm run clean && npm run bundle"
+    "build": "npm run clean && npm run bundle",
+    "debug-build": "node build/debug.js"
   },
   "dependencies": {
     "glob": "^7.1.6",
