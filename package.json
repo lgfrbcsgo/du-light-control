@@ -2,7 +2,7 @@
   "name": "light-controller-scripts",
   "version": "0.0.1",
   "scripts": {
-    "clean": "rimraf dist && mkdir dist",
+    "clean": "rimraf dist",
     "bundle": "node build/bundle.js",
     "build": "npm run clean && npm run bundle"
   },

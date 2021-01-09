@@ -39,4 +39,8 @@ function bundleConfigHandlers(luaConfigPath) {
   );
 }
 
+if (!fs.existsSync(DIST_DIR)){
+  fs.mkdirSync(DIST_DIR);
+}
+
 glob.sync(`${SRC_DIR}/*.yaml`).forEach(bundleConfigHandlers);
