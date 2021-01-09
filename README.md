@@ -40,13 +40,13 @@ It must be connected to the same lights as the Programmer script.
 The lights must be connected to the programming board in the same order 
 as they were connected to the programming board of the Programmer script. 
 
-> It is usually easier to just install the Sequencer script on the programming board 
+> It is usually easiest to just install the Sequencer script on the programming board 
 where the Programmer script was installed.
 
 Examine the connections of the programming board, which is labeled "Sequencer", on the backside of the Starter Kit.
 
 ### Programming a sequence
-**For this next section activate the programming board which is labeled "Programmer".**
+**For this section activate the programming board which is labeled "Programmer".**
 
 The Starter Kit comes with a pre-programmed sequence. 
 
@@ -61,9 +61,22 @@ Press Alt+1 again to exit the playback mode.
 
 #### Navigating the sequence
 
+A light sequence is just that, a sequence of steps.
+You can navigate the steps by pressing Alt+A and Alt+D.
+
+Pressing Alt+A will select the previous step. 
+If there is no previous steps, pressing Alt+A will do nothing.
+
+Pressing Alt+D will select the next step.
+If there are no more next steps, pressing Alt+D will create a new step.
+
+Press Alt+D and Alt+A a few times to navigate the sequence.
 
 ![](images/navigation.png)
 
+If you want to navigate a very long sequence, you can press Alt+2 to enter the "fast travel" mode.
+In fast travel mode pressing Alt+A and Alt+D will jump 10 steps.
+You can leave the fas travel mode by pressing Alt+2 again.
 
 #### Modifying a step
 
