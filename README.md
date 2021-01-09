@@ -7,7 +7,7 @@ The tutorial assumes you own a Starter Kit.
 Starter Kits are available at **::pos{0,2,-1.3524,-49.6077,125.9548}**. 
 (VR Outside the lag zone)
 
-### Scripts introduction
+### Scripts
 There are three scripts for programming and controlling lights.
 The Starter Kit has all three scripts installed and all elements connected already.
 
@@ -165,3 +165,9 @@ Close the window by pressing "Apply" in the bottom right corner.
 Activate the programming board which is labeled "Sequencer".
 If you've followed all the steps, your sequence should be played back.
 Deactivate the programming board again to stop the playback.
+
+## Programming more than 9 lights
+To program more than 9 lights you can use multiple programming boards.
+The Extractor can be connected to up to 9 Databanks.
+Each line in the Extractor output corresponds to one Databank.
+The order of the lines depends solely on the oder in which the Databanks were connected.
