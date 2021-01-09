@@ -1,0 +1,187 @@
+slots:
+  '0':
+    name: slot1
+    type:
+      events: [ ]
+      methods: [ ]
+  '1':
+    name: slot2
+    type:
+      events: [ ]
+      methods: [ ]
+  '2':
+    name: slot3
+    type:
+      events: [ ]
+      methods: [ ]
+  '3':
+    name: slot4
+    type:
+      events: [ ]
+      methods: [ ]
+  '4':
+    name: slot5
+    type:
+      events: [ ]
+      methods: [ ]
+  '5':
+    name: slot6
+    type:
+      events: [ ]
+      methods: [ ]
+  '6':
+    name: slot7
+    type:
+      events: [ ]
+      methods: [ ]
+  '7':
+    name: slot8
+    type:
+      events: [ ]
+      methods: [ ]
+  '8':
+    name: slot9
+    type:
+      events: [ ]
+      methods: [ ]
+  '9':
+    name: slot10
+    type:
+      events: [ ]
+      methods: [ ]
+  "-1":
+    name: unit
+    type:
+      events: [ ]
+      methods: [ ]
+  "-2":
+    name: system
+    type:
+      events: [ ]
+      methods: [ ]
+  "-3":
+    name: library
+    type:
+      events: [ ]
+      methods: [ ]
+handlers:
+  - code: |
+      local intervalDuration = 0.469 --export: The duration of each interval in seconds.
+
+      local Main = require("custom/light-controller/programmer")
+      programmer = Main(unit, intervalDuration)
+      programmer.onStart()
+
+      unit.hide()
+      unit.setTimer("garbage", 5)
+
+    filter:
+      args: [ ]
+      signature: start()
+      slotKey: "-1"
+    key: '0'
+  - code: |
+      programmer.onStop()
+    filter:
+      args: [ ]
+      signature: stop()
+      slotKey: "-1"
+    key: '1'
+  - code: |
+      programmer.onUpdate()
+    filter:
+      args: [ ]
+      signature: update()
+      slotKey: "-2"
+    key: '2'
+  - code: |
+      programmer.onStrafeLeft()
+    filter:
+      args:
+        - value: strafeleft
+      signature: actionStart(action)
+      slotKey: "-2"
+    key: '3'
+  - code: |
+      programmer.onStrafeRight()
+    filter:
+      args:
+        - value: straferight
+      signature: actionStart(action)
+      slotKey: "-2"
+    key: '4'
+  - code: |
+      programmer.onOption1()
+    filter:
+      args:
+        - value: option1
+      signature: actionStart(action)
+      slotKey: "-2"
+    key: '5'
+  - code: |
+      programmer.onOption2()
+    filter:
+      args:
+        - value: option2
+      signature: actionStart(action)
+      slotKey: "-2"
+    key: '6'
+  - code: |
+      programmer.onOption3()
+    filter:
+      args:
+        - value: option3
+      signature: actionStart(action)
+      slotKey: "-2"
+    key: '7'
+  - code: |
+      programmer.onOption4()
+    filter:
+      args:
+        - value: option4
+      signature: actionStart(action)
+      slotKey: "-2"
+    key: '8'
+  - code: |
+      programmer.onOption5()
+    filter:
+      args:
+        - value: option5
+      signature: actionStart(action)
+      slotKey: "-2"
+    key: '9'
+  - code: |
+      programmer.onOption6()
+    filter:
+      args:
+        - value: option6
+      signature: actionStart(action)
+      slotKey: "-2"
+    key: '10'
+  - code: |
+      programmer.onOption9()
+    filter:
+      args:
+        - value: option9
+      signature: actionStart(action)
+      slotKey: "-2"
+    key: '11'
+  - code: |
+      programmer.onInputText(text)
+    filter:
+      args:
+        - variable: "*"
+      signature: inputText(text)
+      slotKey: "-2"
+    key: '12'
+  - code: |
+      collectgarbage("collect")
+    filter:
+      args:
+        - value: garbage
+      signature: tick(timerId)
+      slotKey: '-1'
+    key: '13'
+
+methods: [ ]
+events: [ ]

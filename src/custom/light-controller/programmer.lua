@@ -1,0 +1,1 @@
+return require("custom/light-controller/handlers/main")

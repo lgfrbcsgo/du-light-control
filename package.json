@@ -1,0 +1,15 @@
+{
+  "name": "light-controller-scripts",
+  "version": "0.0.1",
+  "scripts": {
+    "clean": "rimraf dist && mkdir dist",
+    "bundle": "node build/bundle.js",
+    "build": "npm run clean && npm run bundle"
+  },
+  "dependencies": {
+    "glob": "^7.1.6",
+    "js-yaml": "^3.14.1",
+    "luabundle": "^1.6.0",
+    "rimraf": "^3.0.2"
+  }
+}
