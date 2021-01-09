@@ -88,6 +88,17 @@ Once you're done, press Alt+1 again.
 
 #### Inserting and deleting steps
 
+Pressing Alt+D adds a step once you have reached the end of the sequence.
+In case you want to add a step in the middle of the sequence, you can press Alt+3 or Alt+4.
+
+Pressing Alt+3 will insert a step before your currently selected step and select it.
+
+Pressing Alt+4 will insert a step after your currently selected step and select it.
+
+You can delete a step by pressing Alt+9. 
+The next step will be selected after you have deleted a step. 
+In case there are no next steps the previous step will be selected.
+
 #### Copying and pasting a step
 
 #### `advanced` Replacing colors of a step
