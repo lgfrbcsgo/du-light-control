@@ -1,0 +1,68 @@
+name: Create Release
+
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    - name: Install build dependencies
+      run: npm install
+
+    - name: Build release
+      run: npm run build
+
+    - name: Version number
+      id: version_number
+      run: echo "::set-output name=version::$(git describe --tags | sed s/^v//)"
+
+    - name: Create release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ steps.version_number.outputs.version }}
+        body: |
+          ## Changelog
+
+    - name: Upload release asset (programmer)
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: dist/programmer.yaml
+        asset_name: programmer_${{ steps.version_number.outputs.version }}.yaml
+        asset_content_type: text/yaml
+
+    - name: Upload release asset (sequencer)
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: dist/sequencer.yaml
+        asset_name: sequencer_${{ steps.version_number.outputs.version }}.yaml
+        asset_content_type: text/yaml
+
+    - name: Upload release asset (extractor)
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: dist/extractor.yaml
+        asset_name: extractor_${{ steps.version_number.outputs.version }}.yaml
+        asset_content_type: text/yaml
