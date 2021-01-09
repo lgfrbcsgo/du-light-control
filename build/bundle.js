@@ -1,25 +1,42 @@
-const yaml = require('js-yaml')
-const fs = require("fs")
-const glob = require("glob")
-const path = require("path")
-const luabundle = require("luabundle")
+const yaml = require("js-yaml");
+const fs = require("fs");
+const glob = require("glob");
+const path = require("path");
+const luabundle = require("luabundle");
 
-const SRC_DIR = "src"
-const DIST_DIR = "dist"
+const SRC_DIR = "src";
+const DIST_DIR = "dist";
 
-function bundleConfigHandlers(luaConfig) {
-    const doc = yaml.safeLoad(fs.readFileSync(luaConfig, "utf8"));
+const REQUIRE_REGEX = /require\(?["'].*["']\)?/;
 
-    for (const handler of doc.handlers) {
-        const bundledCode = luabundle.bundleString(handler.code, { paths: [`${SRC_DIR}/?.lua`] })
-        handler.code = bundledCode.split("\t").join("    ")
-    }
+function bundleCode(code) {
+  const lines = code.split("\n");
 
-    fs.writeFileSync(`${DIST_DIR}/${path.basename(luaConfig)}`, yaml.safeDump(doc, {lineWidth: 1000}))
+  const requireIndex = lines.findIndex((line) => REQUIRE_REGEX.test(line));
+  if (requireIndex === undefined) {
+    return code;
+  }
+
+  const unbundled = lines.slice(0, requireIndex).join("\n");
+  const bundled = luabundle.bundleString(lines.slice(requireIndex).join("\n"), {
+    paths: [`${SRC_DIR}/?.lua`],
+  });
+
+  return `${unbundled}\n${bundled}`;
 }
 
-glob.sync(`${SRC_DIR}/*.yaml`).forEach(bundleConfigHandlers)
+function bundleConfigHandlers(luaConfigPath) {
+  const doc = yaml.safeLoad(fs.readFileSync(luaConfigPath, "utf8"));
 
+  for (const handler of doc.handlers) {
+    const bundledCode = bundleCode(handler.code);
+    handler.code = bundledCode.split("\t").join("    ");
+  }
 
+  fs.writeFileSync(
+    `${DIST_DIR}/${path.basename(luaConfigPath)}`,
+    yaml.safeDump(doc, { lineWidth: -1 })
+  );
+}
 
-
+glob.sync(`${SRC_DIR}/*.yaml`).forEach(bundleConfigHandlers);
