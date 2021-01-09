@@ -10,10 +10,33 @@ The tutorial assumes you own a Starter Kit. Starter Kits are available at ::pos{
 ### Scripts introduction
 ![](images/starter_kit.png)
 
+#### Programmer
+
+#### Extractor
+
+#### Sequencer
+
 ### Programming a sequence
-![](images/pattern.gif)
+
+
 
 ![](images/navigation.png)
+
+#### Navigating the sequence
+
+
+
+![](images/pattern.gif)
+
+
+#### Modifying a step
+
+
+#### Inserting and deleting steps
+
+#### Copying and pasting a step
+
+#### Replacing colors of a step
 
 ### Extracting a sequence from the Databank
 ![](images/extractor_output.png)
@@ -21,3 +44,5 @@ The tutorial assumes you own a Starter Kit. Starter Kits are available at ::pos{
 ![](images/empty_sequence.png)
 
 ![](images/non_empty_sequence.png)
+
+### Multiple programming boards
