@@ -80,12 +80,17 @@ You can leave the fas travel mode by pressing Alt+2 again.
 
 #### Modifying a step
 
+You can make changes to a step by turning a light on or off, or by changing its color.
+You can change the color of a light by right clicking on it and selecting "Set RGB color" in the "Advanced" sub menu.
+
+Modify some steps and play back the modified sequence by pressing Alt+1.
+Once you're done, press Alt+1 again.
 
 #### Inserting and deleting steps
 
 #### Copying and pasting a step
 
-#### Replacing colors of a step
+#### `advanced` Replacing colors of a step
 
 ### Extracting a sequence from the Databank
 ![](images/extractor_output.png)
@@ -94,4 +99,4 @@ You can leave the fas travel mode by pressing Alt+2 again.
 
 ![](images/non_empty_sequence.png)
 
-### Multiple programming boards
+### `advanced` Multiple programming boards
