@@ -101,7 +101,20 @@ In case there are no next steps the previous step will be selected.
 
 #### Copying and pasting a step
 
-#### `advanced` Replacing colors of a step
+You can copy a step by pressing Alt+5.
+
+Pressing Alt+6 will paste the copied step into the currently selected step. 
+
+#### Replacing colors of a step `advanced`
+
+In case you want to change the color of multiple lights within a step you can use the `replace ... with ...` command.
+
+Open the Lua tab in the in-game chat to issue a command. Simply type a command into the chat and press ENTER.
+
+- `replace 255,255,255 with 255,0,0` will change the color of all white lights to red.
+- `replace !255,255,255 with 255,0,0` will change the color of all white lights, which are currently switched off, to red while also turning the lights on.
+- `replace 255,255,255 with !255,0,0` will change the color of all white lights to red while also switching the lights off.
+- `replace !255,255,255 with !255,0,0` will change the color of all white lights, which are currently switched off, to red.
 
 ### Extracting a sequence from the Databank
 ![](images/extractor_output.png)
@@ -110,4 +123,4 @@ In case there are no next steps the previous step will be selected.
 
 ![](images/non_empty_sequence.png)
 
-### `advanced` Multiple programming boards
+### Multiple programming boards `advanced`
