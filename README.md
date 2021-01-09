@@ -120,16 +120,48 @@ Open the Lua tab in the in-game chat to issue a command. Simply type a command i
 - `replace 255,255,255 with !255,0,0` will change the color of all white lights to red while also switching the lights off.
 - `replace !255,255,255 with !255,0,0` will change the color of all white lights, which are currently switched off, to red.
 
-### Extracting a sequence from the Databank
+### Extracting a sequence from the Databank and playing it back with the "Sequencer" script.
 For this section *deactivate* the programming board which is labeled "Programmer".
 
 > **Important:** The Programmer script mustn't be active when activating any of the other two scripts.
 > Activating any of the other programming boards while the Programmer script is active will mess up your sequence.
 
+While the sequence can be played back with the "Programmer" script, it is not very convenient.
+Ideally, the sequence should be played back as soon as the programming board is activated. 
+
+The "Programmer" script also has another drawback:
+To play back a sequence you need to be within 35 meters of the Databank, otherwise the playback will simply stop.
+
+We can circumvent that by extracting the sequence from the Databank and playing it back using the "Sequencer" script.
+
+So, once you're done programming your sequence, activate the programming board, which is labeled "Extractor".
+This will write the sequence from the Databank to the screen which is attached to it.
+However, you won't be able to see the sequence by looking at the screen directly.
+
+To see the sequence you need to right click the screen and select "Edit HTML content" in the "Advanced" sub menu.
+
 ![](images/extractor_output.png)
+
+You should now see a long string of numbers and letters in a new window. 
+Copy this string by selecting it and then pressing Ctrl+C.
+You can now close the window.
+
+Look at the programming board, which is labeled "Sequencer", and press Crtl+L. 
+Alternatively, you can right click the programming board and select "Edit Lua script" in the "Advanced" sub menu.
+
+This should have opened another window. On the left hand side of the window select "system" and then "start()".
 
 ![](images/empty_sequence.png)
 
+You should be able to see a lot of text now. 
+There should be a line `local sequence = {}`. 
+Select the curly braces and press Ctrl+V to paste the sequence which we have just copied.
+The result should look something like this.
+
 ![](images/non_empty_sequence.png)
 
-### Multiple programming boards `advanced`
+Close the window by pressing "Apply" in the bottom right corner.
+
+Activate the programming board which is labeled "Sequencer".
+If you've followed all the steps, your sequence should be played back.
+Deactivate the programming board again to stop the playback.
