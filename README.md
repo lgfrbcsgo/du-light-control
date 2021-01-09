@@ -12,11 +12,10 @@ Blueprints for Starter Kits are available at
 
 ### Scripts
 There are three scripts for programming and controlling lights.
-The Starter Kit has all three scripts installed and all elements connected already.
+The Starter Kit has all three scripts pre-installed and all elements connected already.
 
-> Usually one would install the Sequencer script on the board, 
-where the Programmer script is installed, once the sequence has been programmed.
-However, for demonstration purposes both scripts are installed on separate programming boards on the Starter Kit.
+> Usually one would overwrite the Programmer script with the Sequencer script once the sequence has been programmed.
+> However, for demonstration purposes both scripts are installed on separate programming boards on the Starter Kit.
 
 ![](images/starter_kit.png)
 
@@ -28,7 +27,7 @@ You can connect up to 9 lights to it. It also must be connected to one Databank.
 Examine the connections of the programming board, which is labeled "Programmer", on the backside of the Starter Kit.
 
 #### Extractor
-The Extractor script id for extracting the light sequence from the Databank 
+The Extractor script is for extracting the light sequence from the Databank 
 once you're done programming the sequence.
 
 It must be connected to the same Databank as the Programmer script. 
@@ -41,10 +40,9 @@ The Sequencer script is for playing back an extracted sequence.
 
 It must be connected to the same lights as the Programmer script.
 The lights must be connected to the programming board in the same order 
-as they were connected to the programming board of the Programmer script. 
+in which they were connected to the programming board of the Programmer script. 
 
-> It is usually easiest to just install the Sequencer script on the programming board 
-> where the Programmer script was installed.
+> It is usually easiest to just overwrite the Programmer script with the Sequencer script.
 
 Examine the connections of the programming board, which is labeled "Sequencer", on the backside of the Starter Kit.
 
@@ -72,7 +70,7 @@ A light sequence is just that, a sequence of steps.
 You can navigate the steps by pressing Alt+A and Alt+D.
 
 Pressing Alt+A will select the previous step. 
-If there is no previous steps, pressing Alt+A will do nothing.
+If there is no previous step, pressing Alt+A will do nothing.
 
 Pressing Alt+D will select the next step.
 If there are no more next steps, pressing Alt+D will create a new step.
@@ -83,12 +81,12 @@ Press Alt+D and Alt+A a few times to navigate the sequence.
 
 If you want to navigate a very long sequence, you can press Alt+2 to enter the "fast travel" mode.
 In fast travel mode pressing Alt+A and Alt+D will jump 10 steps.
-You can leave the fas travel mode by pressing Alt+2 again.
+You can leave the fast travel mode by pressing Alt+2 again.
 
 #### Modifying a step
 
 You can make changes to a step by turning a light on or off, or by changing its color.
-You can change the color of a light by right clicking on it and selecting "Set RGB color" in the "Advanced" sub menu.
+You can change the color of a light by right clicking it and selecting "Set RGB color" in the "Advanced" sub menu.
 
 Modify some steps and play back the modified sequence by pressing Alt+1.
 Once you're done, press Alt+1 again.
@@ -112,7 +110,7 @@ You can copy a step by pressing Alt+5.
 
 Pressing Alt+6 will paste the copied step into the currently selected step. 
 
-#### Replacing colors of a step `advanced`
+#### Replacing colors of a step `[advanced]`
 
 In case you want to change the color of multiple lights within a step you can use the `replace ... with ...` command.
 
@@ -127,19 +125,19 @@ Open the Lua tab in the in-game chat to issue a command. Simply type a command i
 For this section *deactivate* the programming board which is labeled "Programmer".
 
 > **Important:** The Programmer script mustn't be active when activating any of the other two scripts.
-> Activating any of the other programming boards while the Programmer script is active will mess up your sequence.
+> Activating any of the other programming boards, while the Programmer script is active, will mess up your sequence.
 
 While the sequence can be played back with the "Programmer" script, it is not very convenient.
-Ideally, the sequence should be played back as soon as the programming board is activated. 
+Ideally, the sequence would be played back as soon as the programming board is activated. 
 
 The "Programmer" script also has another drawback:
 To play back a sequence you need to be within 35 meters of the Databank, otherwise the playback will simply stop.
 
-We can circumvent that by extracting the sequence from the Databank and playing it back using the "Sequencer" script.
+We can fix that by extracting the sequence from the Databank and playing it back using the "Sequencer" script.
 
 So, once you're done programming your sequence, activate the programming board, which is labeled "Extractor".
 This will write the sequence from the Databank to the screen which is attached to it.
-However, you won't be able to see the sequence by looking at the screen directly.
+However, you won't be able to see the sequence by directly looking at the screen.
 
 To see the sequence you need to right click the screen and select "Edit HTML content" in the "Advanced" sub menu.
 
@@ -152,13 +150,13 @@ You can now close the window.
 Look at the programming board, which is labeled "Sequencer", and press Crtl+L. 
 Alternatively, you can right click the programming board and select "Edit Lua script" in the "Advanced" sub menu.
 
-This should have opened another window. On the left hand side of the window select "system" and then "start()".
+This should have opened another window. On the left-hand side of the window select "system" and then "start()".
 
 ![](images/empty_sequence.png)
 
-You should be able to see a lot of text now. 
+You should be seeing a lot of text now. 
 There should be a line `local sequence = {}`. 
-Select the curly braces and press Ctrl+V to paste the sequence which we have just copied.
+Select the curly braces at the end of the line and press Ctrl+V to paste the sequence which we have just copied.
 The result should look something like this.
 
 ![](images/non_empty_sequence.png)
@@ -166,7 +164,7 @@ The result should look something like this.
 Close the window by pressing "Apply" in the bottom right corner.
 
 Activate the programming board which is labeled "Sequencer".
-If you've followed all the steps, your sequence should be played back.
+If you've followed all the steps, your sequence should be playing.
 Deactivate the programming board again to stop the playback.
 
 ## Programming more than 9 lights
