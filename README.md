@@ -41,12 +41,16 @@ The lights must be connected to the programming board in the same order
 as they were connected to the programming board of the Programmer script. 
 
 > It is usually easiest to just install the Sequencer script on the programming board 
-where the Programmer script was installed.
+> where the Programmer script was installed.
 
 Examine the connections of the programming board, which is labeled "Sequencer", on the backside of the Starter Kit.
 
 ### Programming a sequence
-**For this section activate the programming board which is labeled "Programmer".**
+For this section *activate* the programming board which is labeled "Programmer".
+
+> **Important:** Activating any of the other programming boards while the Programmer script is active will mess up your sequence.
+>
+> Avoid programming a light sequence in a busy area as server lag may mess up your sequence.
 
 The Starter Kit comes with a pre-programmed sequence. 
 
@@ -55,7 +59,7 @@ The Starter Kit comes with a pre-programmed sequence.
 Press Alt+1 to play it back.
 
 > In case you forget any of the hotkeys or have remapped your key bindings, 
-you can always look them up in the Lua tab of the in-game chat.
+> you can always look them up in the Lua tab of the in-game chat.
 
 Press Alt+1 again to exit the playback mode.
 
@@ -117,6 +121,11 @@ Open the Lua tab in the in-game chat to issue a command. Simply type a command i
 - `replace !255,255,255 with !255,0,0` will change the color of all white lights, which are currently switched off, to red.
 
 ### Extracting a sequence from the Databank
+For this section *deactivate* the programming board which is labeled "Programmer".
+
+> **Important:** The Programmer script mustn't be active when activating any of the other two scripts.
+> Activating any of the other programming boards while the Programmer script is active will mess up your sequence.
+
 ![](images/extractor_output.png)
 
 ![](images/empty_sequence.png)
