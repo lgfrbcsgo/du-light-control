@@ -1,6 +1,9 @@
-# DU Light Controller
+# DU Light Control
 This is a collection of Lua scripts for programming light sequences in the game Dual Universe.
+
 Get the latest version from the [releases page](https://github.com/lgfrbcsgo/du-light-controller/releases).
+
+Support: https://discord.gg/Nk7nYC5Jw6
 
 ![](images/dance_floor.gif)
 
@@ -10,7 +13,7 @@ Blueprints for Starter Kits are available at
 
 ::pos{0,2,-1.3446,-49.6236,17.1239}
 
-**VR:** DU Light Controller
+**VR:** DU Light Control
 
 ### Scripts
 There are three scripts for programming and controlling lights.
