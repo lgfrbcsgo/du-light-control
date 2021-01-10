@@ -16,6 +16,7 @@ local function SequencerHandler(unit, intervalDuration, idleState)
         unit.system.print(unit.system.getActionKeyName("option1") .. " to switch into programming mode")
         unit.system.print()
 
+        sequenceIterator.seekHead()
         sequencer.onStart()
     end
 

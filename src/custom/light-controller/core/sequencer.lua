@@ -14,7 +14,6 @@ local function Sequencer(sequenceIterator, lights, system, intervalDuration, idl
 
     function instance.onStart()
         instance._setNextUpdate()
-        sequenceIterator.seekHead()
     end
 
     function instance.onStop()

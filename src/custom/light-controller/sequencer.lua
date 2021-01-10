@@ -49,6 +49,13 @@ local function Main(unit, sequence, intervalDuration, idleState)
     local lights = Elements.getLights(unit)
     local sequenceIterator = Iterator(sequence)
 
+    local intervalIndex = math.ceil(unit.system.getTime() / intervalDuration)
+    local sequenceIndex = intervalIndex % #sequence
+
+    for _ = 0, sequenceIndex do
+        sequenceIterator.seekNext()
+    end
+
     if idleState then
         return Sequencer(sequenceIterator, lights, unit.system, intervalDuration, Elements.LIGHT_ON)
     else

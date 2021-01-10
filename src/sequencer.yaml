@@ -65,7 +65,7 @@ handlers:
     filter:
       args: [ ]
       signature: start()
-      slotKey: '-2'
+      slotKey: '-1'
     code: |
       local intervalDuration = 0.469 --export: The duration of each interval in seconds.
       local idleState = false --export: The state of the lights when the script has shutdown.
