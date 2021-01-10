@@ -7,6 +7,7 @@ local function Iterator(sequence)
 
     function instance._init()
         instance._stepNumber = nil
+        instance.seekHead()
     end
 
     function instance.isEmpty()
@@ -30,12 +31,20 @@ local function Iterator(sequence)
     end
 
     function instance.hasNext()
-        return instance._stepNumber < #sequence
+        return instance._stepNumber and instance._stepNumber < #sequence
     end
 
     function instance.seekNext()
         if instance.hasNext() then
             instance._stepNumber = instance._stepNumber + 1
+        end
+        return instance.getStep()
+    end
+
+    function instance.seekIntervalIndex(index)
+        if not instance.isEmpty() then
+            local sequenceIndex = index % #sequence
+            instance._stepNumber = sequenceIndex + 1
         end
         return instance.getStep()
     end
@@ -50,11 +59,7 @@ local function Main(unit, sequence, intervalDuration, idleState)
     local sequenceIterator = Iterator(sequence)
 
     local intervalIndex = math.ceil(unit.system.getTime() / intervalDuration)
-    local sequenceIndex = intervalIndex % #sequence
-
-    for _ = 0, sequenceIndex do
-        sequenceIterator.seekNext()
-    end
+    sequenceIterator.seekIntervalIndex(intervalIndex)
 
     if idleState then
         return Sequencer(sequenceIterator, lights, unit.system, intervalDuration, Elements.LIGHT_ON)
