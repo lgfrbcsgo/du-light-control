@@ -9,11 +9,12 @@ Support: https://discord.gg/Nk7nYC5Jw6
 
 ## Tutorial
 The tutorial assumes you own a Starter Kit. 
-Blueprints for Starter Kits are available at
+It is also possible to follow the tutorial without a Starter Kit.
+In case you don't own a Starter Kit, the first section of the tutorial describes how to connect the elements.
 
-::pos{0,2,-1.3446,-49.6236,17.1239}
+Blueprints for Starter Kits are available for free at
 
-**VR:** DU Light Control
+::pos{0,2,-1.3446,-49.6236,17.1239} (VR: DU Light Control)
 
 ### Scripts
 There are three scripts for programming and controlling lights.
