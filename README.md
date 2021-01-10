@@ -155,7 +155,7 @@ You can now close the window.
 Look at the programming board, which is labeled "Sequencer", and press Crtl+L. 
 Alternatively, you can right click the programming board and select "Edit Lua script" in the "Advanced" sub menu.
 
-This should have opened another window. On the left-hand side of the window select "system" and then "start()".
+This should have opened another window. On the left-hand side of the window select "unit" and then "start()".
 
 ![](images/empty_sequence.png)
 
