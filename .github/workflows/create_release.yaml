@@ -38,9 +38,9 @@ jobs:
           ## Changelog
 
           ## Install Instructions
-          - Click the programmer_${{ steps.version_number.outputs.version }}.txt link below to download the Programmer script.
-          - Click the sequencer_${{ steps.version_number.outputs.version }}.txt link below to download the Sequencer script.
-          - Click the extractor_${{ steps.version_number.outputs.version }}.txt link below to download the Extractor script.
+          - Click the `programmer_${{ steps.version_number.outputs.version }}.txt` link below to download the Programmer script.
+          - Click the `sequencer_${{ steps.version_number.outputs.version }}.txt` link below to download the Sequencer script.
+          - Click the `extractor_${{ steps.version_number.outputs.version }}.txt` link below to download the Extractor script.
 
           To install any of the scripts
           1. Open the file in the text editor.
