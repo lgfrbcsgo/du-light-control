@@ -37,6 +37,16 @@ jobs:
         body: |
           ## Changelog
 
+          ## Install Instructions
+          1. Click the programmer_${{ steps.version_number.outputs.version }}.yaml link below to download the Programmer script.
+          2. Click the sequencer_${{ steps.version_number.outputs.version }}.yaml link below to download the Sequencer script.
+          3. Click the extractor_${{ steps.version_number.outputs.version }}.yaml link below to download the Extractor script.
+          4. To install any of the scripts open it in a text editor.
+              1. Right click the file and select "open with".
+              2. Select the text editor from the list.
+          5. Copy the content of the file.
+          6. In game, right click the programming board and select "Paste Lua configuration from clipboard" in the "Advanced" sub menu.
+
     - name: Upload release asset (programmer)
       uses: actions/upload-release-asset@v1
       env:
