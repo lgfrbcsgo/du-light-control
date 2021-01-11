@@ -13,7 +13,7 @@ end
 
 local Sequence = {}
 
-    function Sequence.Iterator(db, sequenceName)
+function Sequence.Iterator(db, sequenceName)
     local instance = {}
 
     function instance._init()
