@@ -1,6 +1,5 @@
 local Sequencer = require('custom/light-controller/core/sequencer')
 local Elements = require("custom/light-controller/core/elements")
-local Steps = require("custom/light-controller/core/steps")
 
 local function Iterator(sequence)
     local instance = {}
@@ -18,7 +17,7 @@ local function Iterator(sequence)
         if not instance._stepNumber or not sequence[instance._stepNumber] then
             return nil, nil
         end
-        return Steps.unpackStep(sequence[instance._stepNumber]), instance._stepNumber
+        return sequence[instance._stepNumber], instance._stepNumber
     end
 
     function instance.seekHead()

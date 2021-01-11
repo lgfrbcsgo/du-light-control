@@ -13,7 +13,7 @@ end
 
 local Sequence = {}
 
-function Sequence.Iterator(db, sequenceName, raw)
+    function Sequence.Iterator(db, sequenceName)
     local instance = {}
 
     function instance._init()
@@ -115,20 +115,14 @@ function Sequence.Iterator(db, sequenceName, raw)
             return nil, nil
         end
         local step = db.getStringValue(instance._currentPointer)
-        if not raw then
-            step = Steps.unpackStep(step)
-        end
-        return step, instance._stepNumber
+        return Steps.unpackStep(step), instance._stepNumber
     end
 
     function instance.setStep(step)
         if instance.isEmpty() then
             return
         end
-        if not raw then
-            step = Steps.packStep(step)
-        end
-        db.setStringValue(instance._currentPointer, step)
+        db.setStringValue(instance._currentPointer, Steps.packStep(step))
     end
 
     function instance.delete()
@@ -164,11 +158,7 @@ function Sequence.Iterator(db, sequenceName, raw)
     function instance.insertBefore(step)
         local pointer = generateNextKey(db)
 
-        if not raw then
-            step = Steps.packStep(step)
-        end
-
-        db.setStringValue(pointer, step)
+        db.setStringValue(pointer, Steps.packStep(step))
 
         if instance.hasPrevious() then
             instance._setPreviousPointer(instance._getPreviousPointer(), pointer)
@@ -191,11 +181,7 @@ function Sequence.Iterator(db, sequenceName, raw)
     function instance.insertAfter(step)
         local pointer = generateNextKey(db)
 
-        if not raw then
-            step = Steps.packStep(step)
-        end
-
-        db.setStringValue(pointer, step)
+        db.setStringValue(pointer, Steps.packStep(step))
 
         if instance.hasNext() then
             instance._setNextPointer(instance._getNextPointer(), pointer)
