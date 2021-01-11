@@ -3,7 +3,7 @@ This is a collection of Lua scripts for programming light sequences in the game 
 
 Get the latest version from the [releases page](https://github.com/lgfrbcsgo/du-light-controller/releases).
 
-Support: https://discord.gg/Nk7nYC5Jw6
+Support: https://discord.gg/Nk7nYC5Jw6 (`#du-light-control` channel)
 
 ![](images/demo.gif)
 
@@ -14,7 +14,7 @@ In case you don't own a Starter Kit, the first section of the tutorial describes
 
 Blueprints for Starter Kits are available for free at
 
-::pos{0,2,-1.3446,-49.6236,17.1239} (VR: DU Light Control)
+::pos{0,2,-1.3340,-49.6374,17.1688} (VR: DU Light Control)
 
 ### Scripts
 There are three scripts for programming and controlling lights.
