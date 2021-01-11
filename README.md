@@ -5,7 +5,7 @@ Get the latest version from the [releases page](https://github.com/lgfrbcsgo/du-
 
 Support: https://discord.gg/Nk7nYC5Jw6
 
-![](images/dance_floor.gif)
+![](images/demo.gif)
 
 ## Tutorial
 The tutorial assumes you own a Starter Kit. 
