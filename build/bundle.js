@@ -3,6 +3,7 @@ const fs = require("fs");
 const glob = require("glob");
 const path = require("path");
 const luabundle = require("luabundle");
+const luamin = require("luamin");
 
 const SRC_DIR = "src";
 const DIST_DIR = "dist";
@@ -22,15 +23,14 @@ function bundleCode(code) {
     paths: [`${SRC_DIR}/?.lua`],
   });
 
-  return `${unbundled}\n${bundled}`;
+  return `${unbundled}\n${luamin.minify(bundled)}`;
 }
 
 function bundleConfigHandlers(luaConfigPath) {
   const doc = yaml.safeLoad(fs.readFileSync(luaConfigPath, "utf8"));
 
   for (const handler of doc.handlers) {
-    const bundledCode = bundleCode(handler.code);
-    handler.code = bundledCode.split("\t").join("    ");
+    handler.code = bundleCode(handler.code);
   }
 
   fs.writeFileSync(
