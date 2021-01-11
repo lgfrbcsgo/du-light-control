@@ -34,12 +34,12 @@ function bundleConfigHandlers(luaConfigPath) {
   }
 
   fs.writeFileSync(
-    `${DIST_DIR}/${path.basename(luaConfigPath)}`,
-    yaml.safeDump(doc, { lineWidth: -1 })
+    `${DIST_DIR}/${path.basename(luaConfigPath, ".yaml")}.txt`,
+    JSON.stringify(doc)
   );
 }
 
-if (!fs.existsSync(DIST_DIR)){
+if (!fs.existsSync(DIST_DIR)) {
   fs.mkdirSync(DIST_DIR);
 }
 

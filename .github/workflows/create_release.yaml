@@ -38,14 +38,14 @@ jobs:
           ## Changelog
 
           ## Install Instructions
-          1. Click the programmer_${{ steps.version_number.outputs.version }}.yaml link below to download the Programmer script.
-          2. Click the sequencer_${{ steps.version_number.outputs.version }}.yaml link below to download the Sequencer script.
-          3. Click the extractor_${{ steps.version_number.outputs.version }}.yaml link below to download the Extractor script.
-          4. To install any of the scripts open it in a text editor.
-              1. Right click the file and select "open with".
-              2. Select the text editor from the list.
-          5. Copy the content of the file.
-          6. In game, right click the programming board and select "Paste Lua configuration from clipboard" in the "Advanced" sub menu.
+          - Click the programmer_${{ steps.version_number.outputs.version }}.txt link below to download the Programmer script.
+          - Click the sequencer_${{ steps.version_number.outputs.version }}.txt link below to download the Sequencer script.
+          - Click the extractor_${{ steps.version_number.outputs.version }}.txt link below to download the Extractor script.
+
+          To install any of the scripts
+          1. Open the file in the text editor.
+          2. Copy the content of the file.
+          3. In game, right click the programming board and select "Paste Lua configuration from clipboard" in the "Advanced" sub menu.
 
     - name: Upload release asset (programmer)
       uses: actions/upload-release-asset@v1
@@ -53,9 +53,9 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: dist/programmer.yaml
-        asset_name: programmer_${{ steps.version_number.outputs.version }}.yaml
-        asset_content_type: text/yaml
+        asset_path: dist/programmer.txt
+        asset_name: programmer_${{ steps.version_number.outputs.version }}.txt
+        asset_content_type: text/json
 
     - name: Upload release asset (sequencer)
       uses: actions/upload-release-asset@v1
@@ -63,9 +63,9 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: dist/sequencer.yaml
-        asset_name: sequencer_${{ steps.version_number.outputs.version }}.yaml
-        asset_content_type: text/yaml
+        asset_path: dist/sequencer.txt
+        asset_name: sequencer_${{ steps.version_number.outputs.version }}.txt
+        asset_content_type: text/json
 
     - name: Upload release asset (extractor)
       uses: actions/upload-release-asset@v1
@@ -73,6 +73,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: dist/extractor.yaml
-        asset_name: extractor_${{ steps.version_number.outputs.version }}.yaml
-        asset_content_type: text/yaml
+        asset_path: dist/extractor.txt
+        asset_name: extractor_${{ steps.version_number.outputs.version }}.txt
+        asset_content_type: text/json
