@@ -142,7 +142,8 @@ To play back a sequence you need to be within 35 meters of the Databank, otherwi
 
 We can fix that by extracting the sequence from the Databank and playing it back using the "Sequencer" script.
 
-So, once you're done programming your sequence, activate the programming board, which is labeled "Extractor".
+So, once you're done programming your sequence, deactivate the programming board, which is labeled "Programmer".
+Then activate the programming board, which is labeled "Extractor".
 This will write the sequence from the Databank to the screen which is attached to it.
 However, you won't be able to see the sequence by directly looking at the screen.
 
@@ -163,7 +164,8 @@ This should have opened another window. On the left-hand side of the window sele
 
 You should be seeing a lot of text now. 
 There should be a line `local sequence = {}`. 
-Select the curly braces at the end of the line and press Ctrl+V to paste the sequence which we have just copied.
+Delete the curly braces at the end of the line, i.e., `local sequence = `. 
+Then press Ctrl+V to paste the sequence which we have just copied after the equals sign.
 The result should look something like this.
 
 ![](images/non_empty_sequence.png)
