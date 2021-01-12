@@ -54,6 +54,7 @@ Examine the connections of the programming board, which is labeled "Sequencer", 
 
 ### Programming a sequence
 For this section *activate* the programming board which is labeled "Programmer".
+Leave build mode to activate the programming board.
 
 > **Important:** Activating any of the other programming boards while the Programmer script is active will mess up your sequence.
 >
