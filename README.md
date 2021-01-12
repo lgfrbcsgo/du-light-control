@@ -177,7 +177,8 @@ If you've followed all the steps, your sequence should be playing.
 Deactivate the programming board again to stop the playback.
 
 ## Programming more than 9 lights
-To program more than 9 lights you can use multiple programming boards.
+To program more than 9 lights you can use multiple programming boards, i.e., 
+turn multiple programming boards on which are all running the Programmer script.
 The Extractor can be connected to up to 9 Databanks.
 Each line in the Extractor output corresponds to one Databank.
 The order of the lines depends solely on the oder in which the Databanks were connected.
