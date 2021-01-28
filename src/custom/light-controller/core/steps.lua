@@ -1,22 +1,26 @@
 local Steps = {}
 
-function Steps.packState(state)
+function Steps.packStateInt(state)
     local on = (state.on and 1 or 0) << 24
     local r = (math.floor(state.r) & 255) << 16
     local g = (math.floor(state.g) & 255) << 8
     local b = math.floor(state.b) & 255
 
-    return string.format("%07x", on | r | g | b)
+    return on | r | g | b
+end
+
+function Steps.packState(state)
+    return string.format("%07x", Steps.packStateInt(state))
 end
 
 function Steps.unpackState(stateStr)
-    local step = tonumber(stateStr, 16)
+    local state = tonumber(stateStr, 16)
 
     return {
-        on = (step >> 24) == 1,
-        r = (step >> 16) & 255,
-        g = (step >> 8) & 255,
-        b = step & 255,
+        on = (state >> 24) == 1,
+        r = (state >> 16) & 255,
+        g = (state >> 8) & 255,
+        b = state & 255,
     }
 end
 

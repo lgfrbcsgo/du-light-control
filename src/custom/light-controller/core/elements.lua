@@ -10,7 +10,7 @@ function Elements.getElements(unit, predicate)
     local elements = {}
     for _, element in pairs(slots) do
         if predicate(element) then
-            elements[#elements + 1] = element
+            table.insert(elements, element)
         end
     end
     return elements

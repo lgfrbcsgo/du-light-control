@@ -1,41 +1,39 @@
 local Sequence = require("custom/light-controller/core/sequence")
 local Elements = require("custom/light-controller/core/elements")
+local Steps = require("custom/light-controller/core/steps")
 
-local function generateStepCode(parts, step)
-    table.insert(parts, "{")
+local function generateStepCode(step)
+    local parts = {}
     for _, state in pairs(step) do
-        local stateStr = string.format("{on=%s,r=%d,g=%d,b=%d},", state.on, state.r, state.g, state.b)
+        local stateStr = string.format("0x%x", Steps.packStateInt(state))
         table.insert(parts, stateStr)
     end
-    table.insert(parts, "},")
+    return string.format("{%s}", table.concat(parts, ","))
 end
 
-local function generateSequenceCode(parts, sequenceIterator)
-    table.insert(parts, "{")
+local function generateSequenceCode(sequenceIterator)
+    local parts = {}
     if not sequenceIterator.isEmpty() then
         local step = sequenceIterator.getStep()
-        generateStepCode(parts, step)
+        table.insert(parts, generateStepCode(step))
     end
     while sequenceIterator.hasNext() do
         local step = sequenceIterator.seekNext()
-        generateStepCode(parts, step)
+        table.insert(parts, generateStepCode(step))
     end
-    table.insert(parts, "}")
+    return string.format("{%s}", table.concat(parts, ","))
 end
 
 local function Main(unit)
     local dbs = Elements.getDatabases(unit)
     local screen = Elements.getScreen(unit)
 
-    local parts = {}
-
+    parts = {}
     for _, db in pairs(dbs) do
         local sequenceIterator = Sequence.Iterator(db, Sequence.DEFAULT, true)
-        generateSequenceCode(parts, sequenceIterator)
-        table.insert(parts, "\n\n")
+        table.insert(parts, generateSequenceCode(sequenceIterator))
     end
-
-    screen.setHTML(table.concat(parts))
+    screen.setHTML(table.concat(parts, "\n\n"))
 
     unit.exit()
 end

@@ -67,19 +67,25 @@ handlers:
       signature: start()
       slotKey: '-1'
     code: |
-      local intervalDuration = 0.469 --export: The duration of each interval in seconds.
-      local idleState = false --export: The state of the lights when the script has shutdown.
+      intervalDuration = 0.469 --export: The duration of each interval in seconds.
+      idleState = false --export: The state of the lights when the script has shutdown.
 
       -- PASTE SEQUENCE HERE. Replace {} with the output from the extractor.
-      local sequence = {}
+      sequence = {}
 
+      lights = {}
+      local slots = { slot1, slot2, slot3, slot4, slot5, slot6, slot7, slot8, slot9, slot10 }
+      for _, element in pairs(slots) do
+          if element.activate and element.deactivate and element.setRGBColor then
+              table.insert(lights, element)
+          end
+      end
 
-      local Main = require('custom/light-controller/sequencer')
-      sequencer = Main(unit, sequence, intervalDuration, idleState)
-      sequencer.onStart()
+      nextUpdate = math.ceil(system.getTime() / intervalDuration) * intervalDuration
 
       unit.hide()
       unit.setTimer("garbage", 5)
+
 
   - key: '1'
     filter:
@@ -87,7 +93,30 @@ handlers:
       signature: update()
       slotKey: '-2'
     code: |
-      sequencer.onTick()
+      if nextUpdate > system.getTime() then
+          return
+      end
+
+      local intervalIndex = math.floor(system.getTime() / intervalDuration)
+      local step = sequence[intervalIndex % #sequence + 1]
+
+      for index, light in pairs(lights) do
+          local state = step[index] or 0
+
+          local on = (state >> 24) == 1
+          local r = (state >> 16) & 255
+          local g = (state >> 8) & 255
+          local b = state & 255
+
+          if on then
+              light.activate()
+          else
+              light.deactivate()
+          end
+          light.setRGBColor(r, g, b)
+      end
+
+      nextUpdate = (intervalIndex + 1) * intervalDuration
 
   - key: '2'
     filter:
@@ -95,7 +124,15 @@ handlers:
       signature: stop()
       slotKey: '-1'
     code: |
-      sequencer.onStop()
+      for _, light in pairs(lights) do
+          if idleState then
+              light.activate()
+          else
+              light.deactivate()
+          end
+          light.setRGBColor(255, 255, 255)
+      end
+
 
   - key: '3'
     filter:
