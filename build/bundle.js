@@ -3,7 +3,6 @@ const fs = require("fs");
 const glob = require("glob");
 const path = require("path");
 const luabundle = require("luabundle");
-const luamin = require("luamin");
 
 const SRC_DIR = "src";
 const DIST_DIR = "dist";
@@ -23,7 +22,7 @@ function bundleCode(code) {
     paths: [`${SRC_DIR}/?.lua`],
   });
 
-  return `${unbundled}\n${luamin.minify(bundled)}`;
+  return `${unbundled}\n${bundled}`;
 }
 
 function bundleConfigHandlers(luaConfigPath) {
