@@ -12,7 +12,7 @@ The tutorial assumes you own a Starter Kit.
 It is also possible to follow the tutorial without a Starter Kit.
 In case you don't own a Starter Kit, the first section of the tutorial describes how to connect the elements.
 
-Blueprints for Starter Kits are available for free at
+Blueprints (free) and parts for Starter Kits are available at
 
 ::pos{0,2,-1.3340,-49.6374,17.1688} (VR: DU Light Control)
 
