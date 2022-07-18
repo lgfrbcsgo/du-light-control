@@ -55,8 +55,8 @@ function Elements.setLightState(light, state)
 end
 
 function Elements.getLightState(light)
-    local on = 1 == light.getState()
-    local color = light.getRGBColor()
+    local on = 1 == light.isActive()
+    local color = light.getColor()
     return {
         on = on,
         r = color[1],
