@@ -19,7 +19,7 @@ end
 function Elements.getLights(unit)
     local function predicate(element)
         return element.activate and element.deactivate and element.toggle
-                and element.getState and element.getRGBColor and element.setRGBColor
+                and element.isActive and element.getColor and element.setColor
     end
 
     return Elements.getElements(unit, predicate)
@@ -51,7 +51,7 @@ function Elements.setLightState(light, state)
     else
         light.deactivate()
     end
-    light.setRGBColor(state.r, state.g, state.b)
+    light.setColor(state.r, state.g, state.b)
 end
 
 function Elements.getLightState(light)
