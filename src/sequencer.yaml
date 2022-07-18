@@ -64,7 +64,7 @@ handlers:
   - key: '0'
     filter:
       args: [ ]
-      signature: start()
+      signature: onStart()
       slotKey: '-1'
     code: |
       intervalDuration = 0.469 --export: The duration of each interval in seconds.
@@ -81,7 +81,7 @@ handlers:
           end
       end
 
-      nextUpdate = math.ceil(system.getTime() / intervalDuration) * intervalDuration
+      nextUpdate = math.ceil(system.getArkTime() / intervalDuration) * intervalDuration
 
       unit.hide()
       unit.setTimer("garbage", 5)
@@ -90,10 +90,10 @@ handlers:
   - key: '1'
     filter:
       args: [ ]
-      signature: update()
+      signature: onUpdate()
       slotKey: '-2'
     code: |
-      if nextUpdate > system.getTime() then
+      if nextUpdate > system.getArkTime() then
           return
       end
 
@@ -121,7 +121,7 @@ handlers:
   - key: '2'
     filter:
       args: [ ]
-      signature: stop()
+      signature: onStop()
       slotKey: '-1'
     code: |
       for _, light in pairs(lights) do
@@ -138,7 +138,7 @@ handlers:
     filter:
       args:
         - value: garbage
-      signature: tick(timerId)
+      signature: onTimer(timerId)
       slotKey: '-1'
     code: |
       collectgarbage("collect")
