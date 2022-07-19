@@ -59,9 +59,9 @@ function Elements.getLightState(light)
     local color = light.getColor()
     return {
         on = on,
-        r = color[1],
-        g = color[2],
-        b = color[3],
+        r = math.min(color[1], 1) * 255 | 0,
+        g = math.min(color[2], 1) * 255 | 0,
+        b = math.min(color[3], 1) * 255 | 0,
     }
 end
 
