@@ -51,7 +51,7 @@ function Elements.setLightState(light, state)
     else
         light.deactivate()
     end
-    light.setColor(state.r, state.g, state.b)
+    light.setColor(state.r / 255, state.g / 255, state.b / 255)
 end
 
 function Elements.getLightState(light)
