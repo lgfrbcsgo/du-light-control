@@ -76,7 +76,7 @@ handlers:
       lights = {}
       local slots = { slot1, slot2, slot3, slot4, slot5, slot6, slot7, slot8, slot9, slot10 }
       for _, element in pairs(slots) do
-          if element.activate and element.deactivate and element.setRGBColor then
+          if element.activate and element.deactivate and element.setColor then
               table.insert(lights, element)
           end
       end
