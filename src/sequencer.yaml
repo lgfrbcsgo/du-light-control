@@ -113,7 +113,7 @@ handlers:
           else
               light.deactivate()
           end
-          light.setColor(r, g, b)
+          light.setColor(r / 255, g / 255, b / 255)
       end
 
       nextUpdate = (intervalIndex + 1) * intervalDuration
