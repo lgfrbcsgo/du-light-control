@@ -64,7 +64,7 @@ handlers:
   - key: '0'
     filter:
       args: [ ]
-      signature: start()
+      signature: onStart()
       slotKey: '-1'
     code: |
       intervalDuration = 0.469 --export: The duration of each interval in seconds.
@@ -76,12 +76,12 @@ handlers:
       lights = {}
       local slots = { slot1, slot2, slot3, slot4, slot5, slot6, slot7, slot8, slot9, slot10 }
       for _, element in pairs(slots) do
-          if element.activate and element.deactivate and element.setRGBColor then
+          if element.activate and element.deactivate and element.setColor then
               table.insert(lights, element)
           end
       end
 
-      nextUpdate = math.ceil(system.getTime() / intervalDuration) * intervalDuration
+      nextUpdate = math.ceil(system.getArkTime() / intervalDuration) * intervalDuration
 
       unit.hide()
       unit.setTimer("garbage", 5)
@@ -90,14 +90,14 @@ handlers:
   - key: '1'
     filter:
       args: [ ]
-      signature: update()
+      signature: onUpdate()
       slotKey: '-2'
     code: |
-      if nextUpdate > system.getTime() then
+      if nextUpdate > system.getArkTime() then
           return
       end
 
-      local intervalIndex = math.floor(system.getTime() / intervalDuration)
+      local intervalIndex = math.floor(system.getArkTime() / intervalDuration)
       local step = sequence[intervalIndex % #sequence + 1]
 
       for index, light in pairs(lights) do
@@ -113,7 +113,7 @@ handlers:
           else
               light.deactivate()
           end
-          light.setRGBColor(r, g, b)
+          light.setColor(r / 255, g / 255, b / 255)
       end
 
       nextUpdate = (intervalIndex + 1) * intervalDuration
@@ -121,7 +121,7 @@ handlers:
   - key: '2'
     filter:
       args: [ ]
-      signature: stop()
+      signature: onStop()
       slotKey: '-1'
     code: |
       for _, light in pairs(lights) do
@@ -130,7 +130,7 @@ handlers:
           else
               light.deactivate()
           end
-          light.setRGBColor(255, 255, 255)
+          light.setColor(1, 1, 1)
       end
 
 
@@ -138,7 +138,7 @@ handlers:
     filter:
       args:
         - value: garbage
-      signature: tick(timerId)
+      signature: onTimer(timerId)
       slotKey: '-1'
     code: |
       collectgarbage("collect")

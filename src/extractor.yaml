@@ -71,7 +71,7 @@ handlers:
 
     filter:
       args: [ ]
-      signature: start()
+      signature: onStart()
       slotKey: "-1"
     key: '0'
 methods: [ ]

@@ -77,21 +77,21 @@ handlers:
 
     filter:
       args: [ ]
-      signature: start()
+      signature: onStart()
       slotKey: "-1"
     key: '0'
   - code: |
       programmer.onStop()
     filter:
       args: [ ]
-      signature: stop()
+      signature: onStop()
       slotKey: "-1"
     key: '1'
   - code: |
       programmer.onUpdate()
     filter:
       args: [ ]
-      signature: update()
+      signature: onUpdate()
       slotKey: "-2"
     key: '2'
   - code: |
@@ -99,7 +99,7 @@ handlers:
     filter:
       args:
         - value: strafeleft
-      signature: actionStart(action)
+      signature: onActionStart(action)
       slotKey: "-2"
     key: '3'
   - code: |
@@ -107,7 +107,7 @@ handlers:
     filter:
       args:
         - value: straferight
-      signature: actionStart(action)
+      signature: onActionStart(action)
       slotKey: "-2"
     key: '4'
   - code: |
@@ -115,7 +115,7 @@ handlers:
     filter:
       args:
         - value: option1
-      signature: actionStart(action)
+      signature: onActionStart(action)
       slotKey: "-2"
     key: '5'
   - code: |
@@ -123,7 +123,7 @@ handlers:
     filter:
       args:
         - value: option2
-      signature: actionStart(action)
+      signature: onActionStart(action)
       slotKey: "-2"
     key: '6'
   - code: |
@@ -131,7 +131,7 @@ handlers:
     filter:
       args:
         - value: option3
-      signature: actionStart(action)
+      signature: onActionStart(action)
       slotKey: "-2"
     key: '7'
   - code: |
@@ -139,7 +139,7 @@ handlers:
     filter:
       args:
         - value: option4
-      signature: actionStart(action)
+      signature: onActionStart(action)
       slotKey: "-2"
     key: '8'
   - code: |
@@ -147,7 +147,7 @@ handlers:
     filter:
       args:
         - value: option5
-      signature: actionStart(action)
+      signature: onActionStart(action)
       slotKey: "-2"
     key: '9'
   - code: |
@@ -155,7 +155,7 @@ handlers:
     filter:
       args:
         - value: option6
-      signature: actionStart(action)
+      signature: onActionStart(action)
       slotKey: "-2"
     key: '10'
   - code: |
@@ -163,7 +163,7 @@ handlers:
     filter:
       args:
         - value: option9
-      signature: actionStart(action)
+      signature: onActionStart(action)
       slotKey: "-2"
     key: '11'
   - code: |
@@ -171,7 +171,7 @@ handlers:
     filter:
       args:
         - variable: "*"
-      signature: inputText(text)
+      signature: onInputText(text)
       slotKey: "-2"
     key: '12'
   - code: |
@@ -179,7 +179,7 @@ handlers:
     filter:
       args:
         - value: garbage
-      signature: tick(timerId)
+      signature: onTimer(timerId)
       slotKey: '-1'
     key: '13'
 

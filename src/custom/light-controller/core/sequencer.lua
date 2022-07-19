@@ -8,7 +8,7 @@ local function Sequencer(sequenceIterator, lights, system, intervalDuration, idl
     end
 
     function instance._setNextUpdate()
-        local nextIntervalIndex = math.ceil(system.getTime() / intervalDuration)
+        local nextIntervalIndex = math.ceil(system.getArkTime() / intervalDuration)
         instance._nextUpdate = nextIntervalIndex * intervalDuration
     end
 
@@ -23,7 +23,7 @@ local function Sequencer(sequenceIterator, lights, system, intervalDuration, idl
     end
 
     function instance.onTick()
-        if instance._nextUpdate > system.getTime() then
+        if instance._nextUpdate > system.getArkTime() then
             return
         end
 
