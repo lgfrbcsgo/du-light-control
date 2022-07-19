@@ -130,7 +130,7 @@ handlers:
           else
               light.deactivate()
           end
-          light.setColor(255, 255, 255)
+          light.setColor(1, 1, 1)
       end
 
 
