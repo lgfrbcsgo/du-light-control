@@ -97,7 +97,7 @@ handlers:
           return
       end
 
-      local intervalIndex = math.floor(system.getTime() / intervalDuration)
+      local intervalIndex = math.floor(system.getArkTime() / intervalDuration)
       local step = sequence[intervalIndex % #sequence + 1]
 
       for index, light in pairs(lights) do
@@ -113,7 +113,7 @@ handlers:
           else
               light.deactivate()
           end
-          light.setRGBColor(r, g, b)
+          light.setColor(r, g, b)
       end
 
       nextUpdate = (intervalIndex + 1) * intervalDuration
