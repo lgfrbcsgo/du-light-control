@@ -72,7 +72,7 @@ handlers:
       programmer = Main(unit, intervalDuration)
       programmer.onStart()
 
-      unit.hide()
+      unit.hideWidget()
       unit.setTimer("garbage", 5)
 
     filter:

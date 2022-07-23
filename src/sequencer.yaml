@@ -83,7 +83,7 @@ handlers:
 
       nextUpdate = math.ceil(system.getArkTime() / intervalDuration) * intervalDuration
 
-      unit.hide()
+      unit.hideWidget()
       unit.setTimer("garbage", 5)
 
 
